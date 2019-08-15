@@ -43,7 +43,7 @@ router.get("/:id", auth, async (req, res) => {
 
 //PUT for the update the request.
 router.put("/:id", auth, async (req, res) => {
-  console.log(req.params.id);
+  //console.log(req.params.id);
 
   const todo = await Todo.findById(req.params.id);
   if (!todo) return;
@@ -61,7 +61,7 @@ router.put("/:id", auth, async (req, res) => {
 // For deleting the Todo
 router.delete("/:id", auth, (req, res) => {
   Todo.findByIdAndRemove(req.params.id)
-    .then((todo) => {
+    .then(todo => {
       if (!todo) {
         return res
           .status(404)
@@ -69,7 +69,7 @@ router.delete("/:id", auth, (req, res) => {
       }
       res.send({ message: "Todo Deleted Succesfully" });
     })
-    .catch((err) => {
+    .catch(err => {
       return res.status(404).send({ message: "Todo is not found" });
     });
 });
