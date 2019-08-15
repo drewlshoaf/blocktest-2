@@ -25,56 +25,36 @@ register a new user (public)
       "password" : "yourpassword"
     }
 
-- **login(public) **
-
-request
+login (public)
 
     POST /api/user/login/
-
-input
 
     {
       "email" : "youremail@yourprovider.tld",
       "password" : "yourpassword"
     }
 
-output
-
-    sampletoken...
-
-- **create a new todo (protected) **
-
-request
+create a new todo (protected)
 
     POST /api/todo/
 
-input
-
     {
       "title" : "sample title",
       "description" : "sample description",
       "dueDate" : "2019-01-01"
     }
 
-- **list all todo's (protected) **
-
-request
+list all todo's (protected)
 
     GET /api/todo/
 
-- **get a todo (protected) **
-
-request
+get a todo (protected)
 
     GET /api/todo/[todoId]
 
-- **update a todo (protected) **
-
-request
+update a todo (protected)
 
     PUT /api/todo/[todoId]
-
-input
 
     {
       "title" : "sample title",
@@ -82,8 +62,6 @@ input
       "dueDate" : "2019-01-01"
     }
 
-- **delete a todo (protected) **
-
-request
+delete a todo (protected)
 
     DELETE /api/todo/[todoId]
