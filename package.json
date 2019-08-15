@@ -1,7 +1,7 @@
 {
   "name": "blocktest-2",
   "version": "2.0.1",
-  "description": "",
+  "description": "CRUD API built with Node/Express, MongoDB, with support for JWT auth, to support a 'to do list' type of application.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,68 +1,110 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# closest
 
-## Available Scripts
+REST API built with Node/Express, MongoDB, with support for JWT auth, to support a 'to do list' type of application.
 
-In the project directory, you can run:
+# dev notes
 
-### `npm start`
+- The solution has been developed in node.js and tested on the node 11.2 version with a mix of ECMA versions depending on purpose.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# improvements
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- The testing suite needs additional tests developed including tests which use local data.
+- We should be storing new zip code -> geocode records after initial retrieval for faster future searches.
 
-### `npm test`
+# install
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+clone repo, then run:
 
-### `npm run build`
+    npm install
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# test
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+run:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    npm test
 
-### `npm run eject`
+# run
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+run:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# usage
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+All requests to protected routes require the use of the x-auth-token header and token value.
 
-## Learn More
+- **register a new user (public) **
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+request
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    POST /api/user/register/
 
-### Code Splitting
+input
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+    {
+      "email" : "youremail@yourprovider.tld",
+      "password" : "yourpassword"
+    }
 
-### Analyzing the Bundle Size
+- **login(public) **
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+request
 
-### Making a Progressive Web App
+    POST /api/user/login/
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+input
 
-### Advanced Configuration
+    {
+      "email" : "youremail@yourprovider.tld",
+      "password" : "yourpassword"
+    }
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+output
 
-### Deployment
+    sampletoken...
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- **create a new todo (protected) **
 
-### `npm run build` fails to minify
+request
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    POST /api/todo/
+
+input
+
+    {
+      "title" : "sample title",
+      "description" : "sample description",
+      "dueDate" : "2019-01-01"
+    }
+
+- **list all todo's (protected) **
+
+request
+
+    GET /api/todo/
+
+- **get a todo (protected) **
+
+request
+
+    GET /api/todo/[todoId]
+
+- **update a todo (protected) **
+
+request
+
+    PUT /api/todo/[todoId]
+
+input
+
+    {
+      "title" : "sample title",
+      "description" : "sample description",
+      "dueDate" : "2019-01-01"
+    }
+
+- **delete a todo (protected) **
+
+request
+
+    DELETE /api/todo/[todoId]
