@@ -1,45 +1,24 @@
-# closest
-
-REST API built with Node/Express, MongoDB, with support for JWT auth, to support a 'to do list' type of application.
-
-# dev notes
-
-- The solution has been developed in node.js and tested on the node 11.2 version with a mix of ECMA versions depending on purpose.
-
-# improvements
-
-- The testing suite needs additional tests developed including tests which use local data.
-- We should be storing new zip code -> geocode records after initial retrieval for faster future searches.
+A REST API built with Node/Express, MongoDB, with support for JWT auth, to support a 'to do list' type of application.
 
 # install
-
-clone repo, then run:
 
     npm install
 
 # test
 
-run:
-
     npm test
 
 # run
 
-run:
-
     npm start
 
-# usage
+# api
 
-All requests to protected routes require the use of the x-auth-token header and token value.
+Protected routes require the use of the x-auth-token header and token value.
 
-- **register a new user (public) **
-
-request
+register a new user (public)
 
     POST /api/user/register/
-
-input
 
     {
       "email" : "youremail@yourprovider.tld",
